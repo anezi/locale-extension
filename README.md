@@ -59,3 +59,11 @@ shows:
 shows:
 
 **fr**
+
+#### Get html direction
+
+`{{ "ar"|html_dir }}`
+
+shows:
+
+**rtl**

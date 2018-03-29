@@ -103,4 +103,19 @@ class LocaleExtensionTest extends TestCase
 
         $this->assertSame('fr', $response = $this->twig->render('template'));
     }
+
+    /**
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function testHtmlDirFilter(): void
+    {
+        $this->loader->setTemplate(
+            'template',
+            '{{ "fr_BE"|html_dir }} - {{ "ar"|html_dir }}'
+        );
+
+        $this->assertSame('ltr - rtl', $response = $this->twig->render('template'));
+    }
 }

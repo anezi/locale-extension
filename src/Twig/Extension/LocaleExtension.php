@@ -17,6 +17,8 @@ use Twig\TwigFunction;
  */
 class LocaleExtension extends AbstractExtension
 {
+    private const RTL_LANGUAGES = ['ar', 'arc', 'dv', 'fa', 'ha', 'he', 'khw', 'ks', 'ku', 'ps', 'ur', 'yi'];
+
     /**
      * @var array
      */
@@ -50,6 +52,7 @@ class LocaleExtension extends AbstractExtension
             new TwigFilter('locale_name', [$this, 'getLocaleName']),
             new TwigFilter('origin_locale_name', [$this, 'getOriginLocaleName']),
             new TwigFilter('short_name', [$this, 'getShortName']),
+            new TwigFilter('html_dir', [$this, 'getHtmlDir']),
         ];
     }
 
@@ -99,5 +102,15 @@ class LocaleExtension extends AbstractExtension
     public function getShortName(string $locale): string
     {
         return \Locale::getPrimaryLanguage($locale);
+    }
+
+    /**
+     * @param string $locale The locale.
+     *
+     * @return string
+     */
+    public function getHtmlDir(string $locale): string
+    {
+        return \in_array($this->getShortName($locale), self::RTL_LANGUAGES, true) ? 'rtl' : 'ltr';
     }
 }
