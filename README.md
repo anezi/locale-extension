@@ -1,5 +1,11 @@
 ## Locale Extensions for Twig
 
+### Installation
+
+The extension is installable via composer:
+
+`composer require anezi/locale-extension`
+
 ### Symfony service
 
 ```yaml
