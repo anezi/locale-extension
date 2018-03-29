@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * (c) Hassan Amouhzi <hassan@anezi.net>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Anezi\Locale\Twig\Extension;
@@ -10,10 +17,7 @@ use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 /**
- * Class LocaleExtension.
- *
- * @author  Hassan Amouhzi <hassan@amouhzi.com>
- * @license Proprietary See License file.
+ * @author  Hassan Amouhzi <hassan@anezi.net>
  */
 class LocaleExtension extends AbstractExtension
 {
