@@ -63,9 +63,9 @@ class LocaleExtensionTest extends TestCase
     {
         $this->loader->setTemplate(
             'template',
-            '{{ "fr"|origin_locale_name }}'
+            '{{ "fr_BE"|origin_locale_name }}'
         );
 
-        $this->assertSame('français', $response = $this->twig->render('template'));
+        $this->assertSame('français (Belgique)', $response = $this->twig->render('template'));
     }
 }
