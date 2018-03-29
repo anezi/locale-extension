@@ -20,6 +20,8 @@ class LocaleExtensionTest extends TestCase
 
     public function setUp()
     {
+        \Locale::setDefault('en');
+
         $this->loader = new \Twig_Loader_Array([]);
 
         $this->twig = new \Twig_Environment($this->loader);
