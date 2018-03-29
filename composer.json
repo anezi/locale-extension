@@ -1,5 +1,5 @@
 {
-    "name": "anezi/locale",
+    "name": "anezi/locale-extension",
     "require": {
         "php": "~7.0",
         "symfony/intl": ">=2.6.0",
