@@ -85,7 +85,7 @@ class LocaleExtension extends AbstractExtension
      *
      * @return string
      */
-    public function getOriginLocaleName(string $locale): string
+    public function getOriginLocaleName(string $locale): ?string
     {
         return Intl::getLocaleBundle()->getLocaleName($locale, $locale);
     }

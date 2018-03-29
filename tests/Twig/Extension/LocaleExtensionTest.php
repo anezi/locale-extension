@@ -29,7 +29,12 @@ class LocaleExtensionTest extends TestCase
         $this->twig->addExtension(new LocaleExtension(['ar', 'en', 'fr']));
     }
 
-    public function testLocalesFunction()
+    /**
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function testLocalesFunction(): void
     {
         $this->loader->setTemplate(
             'template',
@@ -39,7 +44,12 @@ class LocaleExtensionTest extends TestCase
         $this->assertSame('ar - en - fr - ', $this->twig->render('template'));
     }
 
-    public function testCountryNameFilter()
+    /**
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function testCountryNameFilter(): void
     {
         $this->loader->setTemplate(
             'template',
@@ -49,7 +59,12 @@ class LocaleExtensionTest extends TestCase
         $this->assertSame('Belgium', $response = $this->twig->render('template'));
     }
 
-    public function testLocaleNameFilter()
+    /**
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function testLocaleNameFilter(): void
     {
         $this->loader->setTemplate(
             'template',
@@ -59,7 +74,12 @@ class LocaleExtensionTest extends TestCase
         $this->assertSame('French', $response = $this->twig->render('template'));
     }
 
-    public function testOriginLocaleNameFilter()
+    /**
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function testOriginLocaleNameFilter(): void
     {
         $this->loader->setTemplate(
             'template',

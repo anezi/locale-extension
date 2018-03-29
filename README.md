@@ -15,3 +15,14 @@ services:
             - { name: twig.extension }
 
 ```
+
+### Filters
+
+#### Get country name
+
+`{{ "be"|country_name }}`
+
+#### Get locale name
+
+`{{ "be-FR"|locale_name }}`
+

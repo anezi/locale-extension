@@ -1,7 +1,7 @@
 {
     "name": "anezi/locale-extension",
     "require": {
-        "php": "~7.0",
+        "php": "~7.1",
         "symfony/intl": ">=2.6.0",
         "twig/twig": ">=2.4.0"
     },
