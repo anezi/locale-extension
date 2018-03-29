@@ -105,11 +105,11 @@ class LocaleExtensionTest extends TestCase
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function testShortNameNameFilter(): void
+    public function testLocaleShortNameNameFilter(): void
     {
         $this->loader->setTemplate(
             'template',
-            '{{ "fr_BE"|short_name }}'
+            '{{ "fr_BE"|locale_short_name }}'
         );
 
         $this->assertSame('fr', $response = $this->twig->render('template'));

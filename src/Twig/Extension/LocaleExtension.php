@@ -55,7 +55,7 @@ class LocaleExtension extends AbstractExtension
             new TwigFilter('country_name', [$this, 'getCountryName']),
             new TwigFilter('locale_name', [$this, 'getLocaleName']),
             new TwigFilter('origin_locale_name', [$this, 'getOriginLocaleName']),
-            new TwigFilter('short_name', [$this, 'getShortName']),
+            new TwigFilter('locale_short_name', [$this, 'getLocaleShortName']),
             new TwigFilter('html_dir', [$this, 'getHtmlDir']),
         ];
     }
@@ -103,7 +103,7 @@ class LocaleExtension extends AbstractExtension
      *
      * @return string
      */
-    public function getShortName(string $locale): string
+    public function getLocaleShortName(string $locale): string
     {
         return \Locale::getPrimaryLanguage($locale);
     }
@@ -115,6 +115,6 @@ class LocaleExtension extends AbstractExtension
      */
     public function getHtmlDir(string $locale): string
     {
-        return \in_array($this->getShortName($locale), self::RTL_LANGUAGES, true) ? 'rtl' : 'ltr';
+        return \in_array($this->getLocaleShortName($locale), self::RTL_LANGUAGES, true) ? 'rtl' : 'ltr';
     }
 }
