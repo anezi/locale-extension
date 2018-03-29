@@ -16,13 +16,38 @@ services:
 
 ```
 
+### Functions
+
+#### Get locales
+
+`{% for locale in locales() %}{{ locale }} - {% endfor %}`
+
+shows:
+
+**ar - en - fr -** 
+
 ### Filters
 
 #### Get country name
 
 `{{ "be"|country_name }}`
 
+shows:
+
+**Belgium**
+
 #### Get locale name
 
-`{{ "be-FR"|locale_name }}`
+`{{ "fr_BE"|locale_name }}`
 
+shows:
+
+**French (Belgium)**
+
+#### Get locale name in that locale
+
+`{{ "fr_BE"|origin_locale_name }}`
+
+shows:
+
+**français (Belgique)**
