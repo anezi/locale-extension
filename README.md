@@ -55,9 +55,9 @@ shows:
 
 **français (Belgique)**
 
-#### Get short name
+#### Get locale short name
 
-`{{ "fr_BE"|short_name }}`
+`{{ "fr_BE"|locale_short_name }}`
 
 shows:
 
