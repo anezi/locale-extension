@@ -22,7 +22,7 @@ stages:
     - *setup
     - ./phpunit --configuration phpunit.xml.dist --colors=never $PHPUNIT_ARGS
     - if [[ $PHPMD == '1' ]] ; then
-        if [ ! -f phpunit ]; then
+        if [ ! -f phpmd ]; then
           curl -o phpmd -L http://static.phpmd.org/php/latest/phpmd.phar ;
           chmod +x phpmd ;
         fi ;
