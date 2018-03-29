@@ -1,7 +1,7 @@
 ## Locale Extensions for Twig
 
-[![pipeline status](https://gitlab.anezi.net/sf-comp/locale/badges/master/pipeline.svg)](https://gitlab.anezi.net/sf-comp/locale/commits/master)
-[![coverage report](https://gitlab.anezi.net/sf-comp/locale/badges/master/coverage.svg)](https://symfony.anezi.net/locale/)
+[![pipeline status](https://gitlab.com/anezi/locale-extension/badges/master/pipeline.svg)](https://gitlab.com/anezi/locale-extension/commits/master)
+[![coverage report](https://gitlab.com/anezi/locale-extension/badges/master/coverage.svg)](https://gitlab.com/anezi/locale-extension)
 
 ### Symfony service
 
