@@ -1,0 +1,11 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="Anezi Locale">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites><filter>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+        <directory suffix=".php">src</directory>
+    </whitelist>
+</filter>
+</phpunit>

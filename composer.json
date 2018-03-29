@@ -1,0 +1,14 @@
+{
+    "name": "anezi/locale",
+    "require": {
+        "php": "~7.0",
+        "symfony/intl": ">=2.6.0",
+        "twig/twig": ">=2.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anezi\\Locale\\": "src/"
+        }
+    },
+    "minimum-stability": "beta"
+}

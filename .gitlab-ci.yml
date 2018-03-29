@@ -1,0 +1,69 @@
+stages:
+  - test
+  - deploy
+
+.setup: &setup |
+  if [[ $COVERAGE == '1' ]] ;
+    then echo "zend_extension=xdebug.so" > /etc/php7/conf.d/xdebug.ini ;
+  fi ;
+  if [[ $DEPS == 'lowest' ]]; then export COMPOSER_ARGS='--prefer-lowest --prefer-stable' ; fi ;
+  if [[ $COVERAGE == '1' ]]; then export PHPUNIT_ARGS='--coverage-text --coverage-html coverage' ; fi ;
+  composer update $COMPOSER_ARGS ;
+  composer show ;
+  if [ ! -f phpunit ]; then
+    curl -o phpunit -L https://phar.phpunit.de/phpunit-7.phar ;
+    chmod +x phpunit ;
+  fi ;
+  ./phpunit --version ;
+
+.test: &test
+  stage: test
+  script:
+    - *setup
+    - ./phpunit --configuration phpunit.xml.dist --colors=never $PHPUNIT_ARGS
+    - if [[ $PHPMD == '1' ]] ; then
+        if [ ! -f phpunit ]; then
+          curl -o phpmd -L http://static.phpmd.org/php/latest/phpmd.phar ;
+          chmod +x phpmd ;
+        fi ;
+        ./phpmd src text ruleset.xml --reportfile-html phpmd.html ;
+      fi
+  cache:
+    key: "$CI_JOB_NAME"
+    untracked: true
+
+test 7.1 lowest:
+  image: registry.anezi.net/images/php-dev:7.1
+  variables:
+    DEPS: "lowest"
+    PHPMD: "1"
+    COVERAGE: "0"
+  <<: *test
+  artifacts:
+    paths:
+      - phpmd.html
+
+test 7.1 latest:
+  image: registry.anezi.net/images/php-dev:7.1
+  variables:
+    DEPS: "latest"
+    PHPMD: "0"
+    COVERAGE: "1"
+  <<: *test
+  artifacts:
+    paths:
+      - coverage
+
+pages:
+  image: docker:latest
+  stage: deploy
+  script:
+    - mkdir public
+    - mv coverage public/
+    - mv phpmd.html public/
+    - echo "Visit https://packages.pages.anezi.net/locale to verify the results."
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
