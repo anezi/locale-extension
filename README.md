@@ -51,3 +51,11 @@ shows:
 shows:
 
 **français (Belgique)**
+
+#### Get short name
+
+`{{ "fr_BE"|short_name }}`
+
+shows:
+
+**fr**

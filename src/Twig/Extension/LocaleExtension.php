@@ -49,6 +49,7 @@ class LocaleExtension extends AbstractExtension
             new TwigFilter('country_name', [$this, 'getCountryName']),
             new TwigFilter('locale_name', [$this, 'getLocaleName']),
             new TwigFilter('origin_locale_name', [$this, 'getOriginLocaleName']),
+            new TwigFilter('short_name', [$this, 'getShortName']),
         ];
     }
 
@@ -88,5 +89,15 @@ class LocaleExtension extends AbstractExtension
     public function getOriginLocaleName(string $locale): ?string
     {
         return Intl::getLocaleBundle()->getLocaleName($locale, $locale);
+    }
+
+    /**
+     * @param string $locale The locale.
+     *
+     * @return string
+     */
+    public function getShortName(string $locale): string
+    {
+        return \Locale::getPrimaryLanguage($locale);
     }
 }

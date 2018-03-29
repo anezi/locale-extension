@@ -88,4 +88,19 @@ class LocaleExtensionTest extends TestCase
 
         $this->assertSame('français (Belgique)', $response = $this->twig->render('template'));
     }
+
+    /**
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function testShortNameNameFilter(): void
+    {
+        $this->loader->setTemplate(
+            'template',
+            '{{ "fr_BE"|short_name }}'
+        );
+
+        $this->assertSame('fr', $response = $this->twig->render('template'));
+    }
 }
