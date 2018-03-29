@@ -1,14 +1,22 @@
 {
-    "name": "anezi/locale-extension",
-    "require": {
-        "php": "~7.1",
-        "symfony/intl": ">=2.6.0",
-        "twig/twig": ">=2.4.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Anezi\\Locale\\": "src/"
-        }
-    },
-    "minimum-stability": "beta"
+  "name": "anezi/locale-extension",
+  "description": "Locale Extensions for Twig",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hassan Amouhzi",
+      "email": "hassan@anezi.net"
+    }
+  ],
+  "require": {
+    "php": "~7.1",
+    "symfony/intl": ">=2.6.0",
+    "twig/twig": ">=2.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Anezi\\Locale\\": "src/"
+    }
+  },
+  "minimum-stability": "beta"
 }
