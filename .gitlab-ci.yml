@@ -33,7 +33,7 @@ stages:
     untracked: true
 
 test 7.0 lowest:
-  image: registry.gitlab.com/images/php-dev:7.0
+  image: registry.gitlab.com/anezi/php-dev:7.0
   variables:
     DEPS: "lowest"
     PHPMD: "1"
@@ -44,7 +44,7 @@ test 7.0 lowest:
       - phpmd.html
 
 test 7.0 latest:
-  image: registry.gitlab.com/images/php-dev:7.0
+  image: registry.gitlab.com/anezi/php-dev:7.0
   variables:
     DEPS: "latest"
     PHPMD: "0"
@@ -55,7 +55,7 @@ test 7.0 latest:
       - coverage
 
 test 7.1 lowest:
-  image: registry.gitlab.com/images/php-dev:7.1
+  image: registry.gitlab.com/anezi/php-dev:7.1
   variables:
     DEPS: "lowest"
     PHPMD: "0"
@@ -63,7 +63,7 @@ test 7.1 lowest:
   <<: *test
 
 test 7.1 latest:
-  image: registry.gitlab.com/images/php-dev:7.1
+  image: registry.gitlab.com/anezi/php-dev:7.1
   variables:
     DEPS: "latest"
     PHPMD: "0"
@@ -71,7 +71,7 @@ test 7.1 latest:
   <<: *test
 
 test 7.2 lowest:
-  image: registry.gitlab.com/images/php-dev:7.2
+  image: registry.gitlab.com/anezi/php-dev:7.2
   variables:
     DEPS: "lowest"
     PHPMD: "0"
@@ -79,7 +79,7 @@ test 7.2 lowest:
   <<: *test
 
 test 7.2 latest:
-  image: registry.gitlab.com/images/php-dev:7.2
+  image: registry.gitlab.com/anezi/php-dev:7.2
   variables:
     DEPS: "latest"
     PHPMD: "0"
