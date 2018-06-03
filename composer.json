@@ -10,9 +10,9 @@
     }
   ],
   "require": {
-    "php": "~7.1",
-    "symfony/intl": ">=2.6.0",
-    "twig/twig": ">=2.4.0"
+    "php": "^7.1",
+    "symfony/intl": "^2.6 | ^3.0 | ^4.0",
+    "twig/twig": "^2.4"
   },
   "autoload": {
     "psr-4": {
