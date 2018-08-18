@@ -1,7 +1,12 @@
 {
   "name": "anezi/locale-extension",
   "description": "Locale Extensions for Twig",
-  "keywords": ["twig", "locale", "extension", "twig-extension"],
+  "keywords": [
+    "twig",
+    "locale",
+    "extension",
+    "twig-extension"
+  ],
   "license": "MIT",
   "authors": [
     {
@@ -18,6 +23,5 @@
     "psr-4": {
       "Anezi\\Locale\\": "src/"
     }
-  },
-  "minimum-stability": "beta"
+  }
 }
