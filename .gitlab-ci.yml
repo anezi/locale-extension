@@ -40,7 +40,7 @@ test 7.2 lowest:
         untracked: true
 
 test 7.2 latest:
-    image: registry.gitlab.com/anezi/php-dev:7.
+    image: registry.gitlab.com/anezi/php-dev:7.2
     stage: test
     script:
         - ./tests composer_update_prefer_latest
