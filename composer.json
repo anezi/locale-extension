@@ -17,7 +17,7 @@
   "require": {
     "php": "^7.1",
     "symfony/intl": "^2.6 | ^3.0 | ^4.0",
-    "twig/twig": "^2.4"
+    "twig/twig": "^2.4 | ^2.5"
   },
   "autoload": {
     "psr-4": {
