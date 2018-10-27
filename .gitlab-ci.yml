@@ -56,7 +56,8 @@ pages:
         - mkdir public
         - mv coverage public/
         - mv phpmd.html public/
-        - echo "Visit https://packages.pages.anezi.net/locale to verify the results."
+        - echo "Visit https://anezi.gitlab.io/locale-extension/phpmd.html to see phpmd report."
+        - echo "Visit https://anezi.gitlab.io/locale-extension/coverage to see coverage results."
     artifacts:
         paths:
             - public
