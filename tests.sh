@@ -28,12 +28,17 @@ phpunit () {
 }
 
 phpmd () {
-    if [ ! -f phpmd ]; then
-        curl -o phpmd -L http://static.phpmd.org/php/latest/phpmd.phar ;
-        chmod +x phpmd ;
+    BINARY_PHPMD=phpmd
+
+    if [ ! -f "$BINARY_PHPMD" ]; then
+        composer require "phpmd/phpmd:dev-master" --dev
+        BINARY_PHPMD=vendor/bin/phpmd
+
+        #curl -o phpmd -L http://static.phpmd.org/php/latest/phpmd.phar ;
+        #chmod +x phpmd ;
     fi ;
 
-    ./phpmd src text ruleset.xml --reportfile-html phpmd.html ;
+    "./$BINARY_PHPMD" src text ruleset.xml --reportfile-html phpmd.html ;
 }
 
 case $1 in
