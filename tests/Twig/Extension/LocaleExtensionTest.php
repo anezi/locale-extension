@@ -13,6 +13,8 @@ declare(strict_types=1);
 namespace Anezi\Locale\Twig\Extension;
 
 use PHPUnit\Framework\TestCase;
+use Twig\Environment;
+use Twig\Loader\ArrayLoader;
 
 /**
  * @author  Hassan Amouhzi <hassan@anezi.net>
@@ -20,12 +22,12 @@ use PHPUnit\Framework\TestCase;
 class LocaleExtensionTest extends TestCase
 {
     /**
-     * @var \Twig_Loader_Array
+     * @var \Twig_Loader_Array|ArrayLoader
      */
     private $loader;
 
     /**
-     * @var \Twig_Environment
+     * @var \Twig_Environment|Environment
      */
     private $twig;
 
@@ -33,9 +35,9 @@ class LocaleExtensionTest extends TestCase
     {
         \Locale::setDefault('en');
 
-        $this->loader = new \Twig_Loader_Array([]);
+        $this->loader = $this->createTwigLoaderArray();
 
-        $this->twig = new \Twig_Environment($this->loader);
+        $this->twig = $this->createTwigEnvironment();
 
         $this->twig->addExtension(new LocaleExtension(['ar', 'en', 'fr']));
     }
@@ -128,5 +130,23 @@ class LocaleExtensionTest extends TestCase
         );
 
         $this->assertSame('ltr - rtl', $response = $this->twig->render('template'));
+    }
+
+    private function createTwigLoaderArray()
+    {
+        if (class_exists('Twig_Loader_Array')) {
+            return new \Twig_Loader_Array([]);
+        }
+
+        return new ArrayLoader();
+    }
+
+    private function createTwigEnvironment()
+    {
+        if (class_exists('Twig_Environment')) {
+            return new \Twig_Environment($this->loader);
+        }
+
+        return new Environment($this->loader);
     }
 }

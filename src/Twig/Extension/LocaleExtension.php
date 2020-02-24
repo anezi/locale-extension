@@ -11,7 +11,9 @@ declare(strict_types=1);
 
 namespace Anezi\Locale\Twig\Extension;
 
+use Symfony\Component\Intl\Countries;
 use Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl\Locales;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -75,7 +77,11 @@ class LocaleExtension extends AbstractExtension
      */
     public function getCountryName(string $countryCode): string
     {
-        return Intl::getRegionBundle()->getCountryName(\strtoupper($countryCode));
+        if (method_exists('Intl', 'getRegionBundle')) {
+            return Intl::getRegionBundle()->getCountryName(\strtoupper($countryCode));
+        }
+
+        return Countries::getName(\strtoupper($countryCode));
     }
 
     /**
@@ -85,7 +91,11 @@ class LocaleExtension extends AbstractExtension
      */
     public function getLocaleName(string $locale): string
     {
-        return Intl::getLocaleBundle()->getLocaleName($locale);
+        if (method_exists('Intl', 'getLocaleBundle')) {
+            return Intl::getLocaleBundle()->getLocaleName($locale);
+        }
+
+        return Locales::getName($locale);
     }
 
     /**
@@ -95,7 +105,11 @@ class LocaleExtension extends AbstractExtension
      */
     public function getOriginLocaleName(string $locale): ?string
     {
-        return Intl::getLocaleBundle()->getLocaleName($locale, $locale);
+        if (method_exists('Intl', 'getLocaleBundle')) {
+            return Intl::getLocaleBundle()->getLocaleName($locale, $locale);
+        }
+
+        return Locales::getName($locale, $locale);
     }
 
     /**
