@@ -77,11 +77,11 @@ class LocaleExtension extends AbstractExtension
      */
     public function getCountryName(string $countryCode): string
     {
-        if (method_exists('Intl', 'getRegionBundle')) {
-            return Intl::getRegionBundle()->getCountryName(\strtoupper($countryCode));
+        if (class_exists('Symfony\Component\Intl\Countries')) {
+            return Countries::getName(\strtoupper($countryCode));
         }
 
-        return Countries::getName(\strtoupper($countryCode));
+        return Intl::getRegionBundle()->getCountryName(\strtoupper($countryCode));
     }
 
     /**
@@ -91,11 +91,11 @@ class LocaleExtension extends AbstractExtension
      */
     public function getLocaleName(string $locale): string
     {
-        if (method_exists('Intl', 'getLocaleBundle')) {
-            return Intl::getLocaleBundle()->getLocaleName($locale);
+        if (class_exists('\Symfony\Component\Intl\Locales')) {
+            return Locales::getName($locale);
         }
 
-        return Locales::getName($locale);
+        return Intl::getLocaleBundle()->getLocaleName($locale);
     }
 
     /**
@@ -105,11 +105,11 @@ class LocaleExtension extends AbstractExtension
      */
     public function getOriginLocaleName(string $locale): ?string
     {
-        if (method_exists('Intl', 'getLocaleBundle')) {
-            return Intl::getLocaleBundle()->getLocaleName($locale, $locale);
+        if (class_exists('\Symfony\Component\Intl\Locales')) {
+            return Locales::getName($locale, $locale);
         }
 
-        return Locales::getName($locale, $locale);
+        return Intl::getLocaleBundle()->getLocaleName($locale, $locale);
     }
 
     /**
