@@ -9,7 +9,7 @@ test 7.1:
         matrix:
             - COMPOSER_PREFER: [lowest, latest]
     before_script:
-        - apk add --no-cache curl php7 php7-intl php7-openssl php7-json php7-dom php7-iconv php7-phar php7-ctype php7-mbstring php7-xml
+        - apk add --no-cache curl php7 php7-intl php7-openssl php7-json php7-dom php7-iconv php7-phar php7-ctype php7-mbstring php7-xml php7-xmlwriter
         - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
         - php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
         - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
@@ -33,7 +33,7 @@ test 7.2:
         matrix:
             - COMPOSER_PREFER: [lowest, latest]
     before_script:
-        - apk add --no-cache composer curl php7 php7-intl php7-openssl php7-json php7-dom php7-iconv php7-phar php7-ctype php7-mbstring php7-xml
+        - apk add --no-cache composer curl php7 php7-intl php7-openssl php7-json php7-dom php7-iconv php7-phar php7-ctype php7-mbstring php7-xml php7-xmlwriter
     script:
         - ./tests.sh "composer_update_prefer_$COMPOSER_PREFER"
         - ./tests.sh phpunit
@@ -48,7 +48,7 @@ test 7.3:
         matrix:
             - COMPOSER_PREFER: [lowest, latest]
     before_script:
-        - apk add --no-cache composer curl php7 php7-intl php7-openssl php7-json php7-dom php7-iconv php7-phar php7-ctype php7-mbstring php7-xml
+        - apk add --no-cache composer curl php7 php7-intl php7-openssl php7-json php7-dom php7-iconv php7-phar php7-ctype php7-mbstring php7-xml php7-xmlwriter
     script:
         - ./tests.sh "composer_update_prefer_$COMPOSER_PREFER"
         - ./tests.sh phpunit
@@ -63,7 +63,7 @@ test 7.4:
         matrix:
             - COMPOSER_PREFER: [lowest, latest]
     before_script:
-        - apk add --no-cache composer curl php7 php7-intl php7-openssl php7-json php7-dom php7-iconv php7-phar php7-ctype php7-mbstring php7-xml
+        - apk add --no-cache composer curl php7 php7-intl php7-openssl php7-json php7-dom php7-iconv php7-phar php7-ctype php7-mbstring php7-xml php7-xmlwriter
     script:
         - ./tests.sh "composer_update_prefer_$COMPOSER_PREFER"
         - ./tests.sh phpunit
@@ -78,7 +78,7 @@ test 8.0:
         matrix:
             - COMPOSER_PREFER: [lowest, latest]
     before_script:
-        - apk add --no-cache curl php8 php8-intl php8-openssl php8-json php8-dom php8-iconv php8-phar php8-ctype php8-mbstring php8-xml
+        - apk add --no-cache curl php8 php8-intl php8-openssl php8-json php8-dom php8-iconv php8-phar php8-ctype php8-mbstring php8-xml php8-xmlwriter
         - ln -s /usr/bin/php8 /usr/bin/php
         - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
         - php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
