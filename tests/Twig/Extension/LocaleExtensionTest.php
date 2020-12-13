@@ -31,7 +31,7 @@ class LocaleExtensionTest extends TestCase
      */
     private $twig;
 
-    public function setUp()
+    protected function setUp(): void
     {
         \Locale::setDefault('en');
 
