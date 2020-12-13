@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -xe
 
@@ -12,7 +12,7 @@ composer_update () {
 phpunit () {
     COVERAGE=$1
 
-    if [[ ${COVERAGE} == '1' ]] ; then
+    if [ ${COVERAGE} = '1' ] ; then
         echo "zend_extension=xdebug.so" > /etc/php7/conf.d/xdebug.ini ;
         export PHPUNIT_ARGS='--coverage-text --coverage-html coverage' ;
     fi ;
