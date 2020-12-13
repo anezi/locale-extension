@@ -8,6 +8,8 @@ test 7.1:
     parallel:
         matrix:
             - COMPOSER: [lowest, latest]
+    before_script:
+        - apk add --no-cache composer
     script:
         - ./tests.sh "composer_update_prefer_$COMPOSER"
         - ./tests.sh phpunit_with_coverage
@@ -26,6 +28,8 @@ test 7.2:
     parallel:
         matrix:
             - COMPOSER: [lowest, latest]
+    before_script:
+        - apk add --no-cache composer
     script:
         - ./tests.sh "composer_update_prefer_$COMPOSER"
         - ./tests.sh phpunit
@@ -39,6 +43,8 @@ test 7.3:
     parallel:
         matrix:
             - COMPOSER: [lowest, latest]
+    before_script:
+        - apk add --no-cache composer
     script:
         - ./tests.sh "composer_update_prefer_$COMPOSER"
         - ./tests.sh phpunit
@@ -52,6 +58,8 @@ test 7.4:
     parallel:
         matrix:
             - COMPOSER: [lowest, latest]
+    before_script:
+        - apk add --no-cache composer
     script:
         - ./tests.sh "composer_update_prefer_$COMPOSER"
         - ./tests.sh phpunit
@@ -65,6 +73,8 @@ test 8.0:
     parallel:
         matrix:
             - COMPOSER: [lowest, latest]
+    before_script:
+        - apk add --no-cache composer
     script:
         - ./tests.sh "composer_update_prefer_$COMPOSER"
         - ./tests.sh phpunit
